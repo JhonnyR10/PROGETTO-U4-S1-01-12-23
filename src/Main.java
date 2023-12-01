@@ -80,10 +80,35 @@ public class Main {
                     Video video = new Video(titolo, durata, volume, luminosita);
                     elementiMultimediali[indice] = video;
                     indice++;
+                    break;
+                default:
+                    System.out.println("Non è stato inserito nessun elemento multimediale, per favore riprovare!! ");
+                    break;
             }
         }
 
 
+//        int scelta;
+//        do {
+//            System.out.println("Scegli quale oggetto eseguire (1-5, 0 per uscire): ");
+//            scelta = Integer.parseInt(input.nextLine());
+//
+//            if (scelta >= 1 && scelta <= 5) {
+//                if (elementiMultimediali[scelta - 1] instanceof Immagine)
+//                    ((Immagine) elementiMultimediali[scelta - 1]).esegui();
+//                else if (elementiMultimediali[scelta - 1] instanceof RegistrazioneAudio) {
+//                    ((RegistrazioneAudio) elementiMultimediali[scelta - 1]).esegui();
+//                } else {
+//                    ((Video) elementiMultimediali[scelta - 1]).esegui();
+//                }
+//            } else if (scelta != 0) {
+//                System.out.println("Scelta non valida.");
+//            }
+//        } while (scelta != 0);
+        stampaScelta(elementiMultimediali, input);
+    }
+
+    public static void stampaScelta(ElementoMultimediale[] elementiMultimediali, Scanner input) {
         int scelta;
         do {
             System.out.println("Scegli quale oggetto eseguire (1-5, 0 per uscire): ");
