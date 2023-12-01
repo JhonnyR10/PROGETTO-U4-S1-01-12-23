@@ -4,8 +4,16 @@ import interfaces.RegolaVolume;
 import interfaces.Riproducibile;
 
 public class RegistrazioneAudio extends ElementoMultimediale implements Riproducibile, RegolaVolume {
-    public RegistrazioneAudio(String titolo) {
+
+    //Attributi
+    private int durata;
+    private int volume;
+
+    //Costruttore
+    public RegistrazioneAudio(String titolo, int durata, int volume) {
         super(titolo);
+        this.durata = durata;
+        this.volume = volume;
     }
 
     @Override
@@ -15,11 +23,14 @@ public class RegistrazioneAudio extends ElementoMultimediale implements Riproduc
 
     @Override
     public void aumentaVolume() {
+        volume++;
 
     }
 
     @Override
     public void abbassaVolume() {
-
+        if (volume > 0) {
+            volume--;
+        }
     }
 }
