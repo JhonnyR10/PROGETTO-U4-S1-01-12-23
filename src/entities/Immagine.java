@@ -3,7 +3,7 @@ package entities;
 import interfaces.RegolaLuminosita;
 
 public class Immagine extends ElementoMultimediale implements RegolaLuminosita {
-    
+
     //Attributi
     private int luminosita;
 
@@ -13,6 +13,7 @@ public class Immagine extends ElementoMultimediale implements RegolaLuminosita {
         this.luminosita = luminosita;
     }
 
+    //Metodi
     @Override
     public void aumentaLuminosita() {
         luminosita++;
@@ -24,4 +25,15 @@ public class Immagine extends ElementoMultimediale implements RegolaLuminosita {
             luminosita--;
         }
     }
+
+    @Override
+    public void esegui() {
+        show();
+    }
+
+    public void show() {
+        System.out.println(this.titolo + " " + "*".repeat(luminosita));
+    }
+
+
 }

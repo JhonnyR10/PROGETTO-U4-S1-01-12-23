@@ -5,9 +5,9 @@ import interfaces.Riproducibile;
 
 public class RegistrazioneAudio extends ElementoMultimediale implements Riproducibile, RegolaVolume {
 
-    //Attributi
-    private int durata;
-    private int volume;
+    //Attributi protected perchè ora mi servono per Video
+    protected int durata;
+    protected int volume;
 
     //Costruttore
     public RegistrazioneAudio(String titolo, int durata, int volume) {
@@ -16,11 +16,7 @@ public class RegistrazioneAudio extends ElementoMultimediale implements Riproduc
         this.volume = volume;
     }
 
-    @Override
-    public void play() {
-
-    }
-
+    //Metodi
     @Override
     public void aumentaVolume() {
         volume++;
@@ -31,6 +27,18 @@ public class RegistrazioneAudio extends ElementoMultimediale implements Riproduc
     public void abbassaVolume() {
         if (volume > 0) {
             volume--;
+        }
+    }
+
+    @Override
+    public void esegui() {
+        play();
+    }
+
+    @Override
+    public void play() {
+        for (int i = 0; i < durata; i++) {
+            System.out.println(titolo + " " + "!".repeat(volume));
         }
     }
 }

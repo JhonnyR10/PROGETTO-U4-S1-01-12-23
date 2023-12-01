@@ -1,37 +1,42 @@
 package entities;
 
 import interfaces.RegolaLuminosita;
-import interfaces.RegolaVolume;
-import interfaces.Riproducibile;
 
-public class Video extends ElementoMultimediale implements Riproducibile, RegolaLuminosita, RegolaVolume {
 
-    public Video(String titolo) {
-        super(titolo);
+public class Video extends RegistrazioneAudio implements RegolaLuminosita {
+    //Attributi
+    private int luminosita;
+
+    //Costruttore
+    public Video(String titolo, int durata, int volume, int luminosita) {
+        super(titolo, durata, volume);
+        this.luminosita = luminosita;
     }
 
-    @Override
-    public void play() {
-
-    }
-
+    //Metodi
     @Override
     public void aumentaLuminosita() {
+        luminosita++;
 
     }
 
     @Override
     public void diminuisciLuminosita() {
-
+        if (luminosita > 0) {
+            luminosita--;
+        }
     }
 
     @Override
-    public void aumentaVolume() {
-
+    public void esegui() {
+        play();
     }
 
     @Override
-    public void abbassaVolume() {
-
+    public void play() {
+        for (int i = 0; i < durata; i++) {
+            System.out.println(titolo + ": " + "!".repeat(volume) + "*".repeat(luminosita));
+        }
     }
+
 }
