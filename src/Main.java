@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        ElementoMultimediale[] elementiMultimediali = new ElementoMultimediale[1];
+        ElementoMultimediale[] elementiMultimediali = new ElementoMultimediale[5];
 
         int indice = 0;
         while (indice < elementiMultimediali.length) {
