@@ -98,6 +98,9 @@ public class Main {
             String sceltaLuminosita = input.nextLine();
             if (sceltaLuminosita.equals("Y")) {
                 regolaLuminosita(elementiMultimediali, input);
+            } else if (sceltaLuminosita.equals("n")) {
+                System.out.println("Nessuna modifica verrà apportata");
+
             }
         }
 
