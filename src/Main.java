@@ -94,18 +94,16 @@ public class Main {
 //            scelta = Integer.parseInt(input.nextLine());
 //
 //            if (scelta >= 1 && scelta <= 5) {
-//                if (elementiMultimediali[scelta - 1] instanceof Immagine)
-//                    ((Immagine) elementiMultimediali[scelta - 1]).esegui();
-//                else if (elementiMultimediali[scelta - 1] instanceof RegistrazioneAudio) {
-//                    ((RegistrazioneAudio) elementiMultimediali[scelta - 1]).esegui();
-//                } else {
-//                    ((Video) elementiMultimediali[scelta - 1]).esegui();
-//                }
+//
+//                elementiMultimediali[scelta - 1].esegui();
+//
 //            } else if (scelta != 0) {
 //                System.out.println("Scelta non valida.");
 //            }
 //        } while (scelta != 0);
         stampaScelta(elementiMultimediali, input);
+
+
     }
 
     public static void stampaScelta(ElementoMultimediale[] elementiMultimediali, Scanner input) {
@@ -115,13 +113,9 @@ public class Main {
             scelta = Integer.parseInt(input.nextLine());
 
             if (scelta >= 1 && scelta <= 5) {
-                if (elementiMultimediali[scelta - 1] instanceof Immagine)
-                    ((Immagine) elementiMultimediali[scelta - 1]).esegui();
-                else if (elementiMultimediali[scelta - 1] instanceof RegistrazioneAudio) {
-                    ((RegistrazioneAudio) elementiMultimediali[scelta - 1]).esegui();
-                } else {
-                    ((Video) elementiMultimediali[scelta - 1]).esegui();
-                }
+
+                elementiMultimediali[scelta - 1].esegui();
+
             } else if (scelta != 0) {
                 System.out.println("Scelta non valida.");
             }
