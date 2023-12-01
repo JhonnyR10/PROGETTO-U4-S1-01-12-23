@@ -1,7 +1,7 @@
 package interfaces;
 
 public interface RegolaVolume {
-    void aumentaVolume();
+    public void aumentaVolume();
 
-    void abbassaVolume();
+    public void abbassaVolume();
 }

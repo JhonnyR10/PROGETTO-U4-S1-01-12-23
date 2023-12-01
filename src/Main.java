@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        ElementoMultimediale[] elementiMultimediali = new ElementoMultimediale[5];
+        ElementoMultimediale[] elementiMultimediali = new ElementoMultimediale[1];
 
         int indice = 0;
         while (indice < elementiMultimediali.length) {
@@ -87,21 +87,19 @@ public class Main {
             }
         }
 
-
-//        int scelta;
-//        do {
-//            System.out.println("Scegli quale oggetto eseguire (1-5, 0 per uscire): ");
-//            scelta = Integer.parseInt(input.nextLine());
-//
-//            if (scelta >= 1 && scelta <= 5) {
-//
-//                elementiMultimediali[scelta - 1].esegui();
-//
-//            } else if (scelta != 0) {
-//                System.out.println("Scelta non valida.");
-//            }
-//        } while (scelta != 0);
         stampaScelta(elementiMultimediali, input);
+
+        System.out.println("Vuoi modificare il volume di un elemento Multimediale? (Y/n): ");
+        String sceltaVolume = input.nextLine();
+        if (sceltaVolume.equals("Y")) {
+            regolaVolume(elementiMultimediali, input);
+        } else if (sceltaVolume.equals("n")) {
+            System.out.println("Vuoi modificare la luminosità di un elemento Multimediale? (Y/n): ");
+            String sceltaLuminosita = input.nextLine();
+            if (sceltaLuminosita.equals("Y")) {
+                regolaLuminosita(elementiMultimediali, input);
+            }
+        }
 
 
     }
@@ -120,5 +118,67 @@ public class Main {
                 System.out.println("Scelta non valida.");
             }
         } while (scelta != 0);
+    }
+
+    public static void regolaVolume(ElementoMultimediale[] elementiMultimediali, Scanner input) {
+        int scelta1;
+        System.out.println("Scegli l'elemento multimediale da modificare (1-5)");
+        scelta1 = Integer.parseInt(input.nextLine());
+        if (scelta1 >= 1 && scelta1 <= 5) {
+
+            System.out.println("Vuoi aumentare o diminuire il volume? (+/-)");
+            String sceltaModifica = input.nextLine();
+            if (sceltaModifica.equals("+")) {
+                if (elementiMultimediali[scelta1 - 1] instanceof RegistrazioneAudio) {
+                    ((RegistrazioneAudio) elementiMultimediali[scelta1 - 1]).aumentaVolume();
+                } else if (elementiMultimediali[scelta1 - 1] instanceof Video) {
+                    ((Video) elementiMultimediali[scelta1 - 1]).aumentaVolume();
+                } else {
+                    System.out.println("Un immagine non ha volume!!");
+                }
+            } else if (sceltaModifica.equals("-")) {
+                if (elementiMultimediali[scelta1 - 1] instanceof RegistrazioneAudio) {
+                    ((RegistrazioneAudio) elementiMultimediali[scelta1 - 1]).abbassaVolume();
+                } else if (elementiMultimediali[scelta1 - 1] instanceof Video) {
+                    ((Video) elementiMultimediali[scelta1 - 1]).abbassaVolume();
+                } else {
+                    System.out.println("Un immagine non ha volume!!");
+                }
+            }
+
+        } else if (scelta1 != 0) {
+            System.out.println("Scelta non valida.");
+        }
+    }
+
+    public static void regolaLuminosita(ElementoMultimediale[] elementiMultimediali, Scanner input) {
+        int scelta1;
+        System.out.println("Scegli l'elemento multimediale da modificare (1-5)");
+        scelta1 = Integer.parseInt(input.nextLine());
+        if (scelta1 >= 1 && scelta1 <= 5) {
+
+            System.out.println("Vuoi aumentare o diminuire la luminosità? (+/-)");
+            String sceltaModifica = input.nextLine();
+            if (sceltaModifica.equals("+")) {
+                if (elementiMultimediali[scelta1 - 1] instanceof Immagine) {
+                    ((Immagine) elementiMultimediali[scelta1 - 1]).aumentaLuminosita();
+                } else if (elementiMultimediali[scelta1 - 1] instanceof Video) {
+                    ((Video) elementiMultimediali[scelta1 - 1]).aumentaLuminosita();
+                } else {
+                    System.out.println("Una registrazione multimediale non ha luminosità!!");
+                }
+            } else if (sceltaModifica.equals("-")) {
+                if (elementiMultimediali[scelta1 - 1] instanceof Immagine) {
+                    ((Immagine) elementiMultimediali[scelta1 - 1]).diminuisciLuminosita();
+                } else if (elementiMultimediali[scelta1 - 1] instanceof Video) {
+                    ((Video) elementiMultimediali[scelta1 - 1]).diminuisciLuminosita();
+                } else {
+                    System.out.println("Una registrazione multimediale non ha luminosità!!");
+                }
+            }
+
+        } else if (scelta1 != 0) {
+            System.out.println("Scelta non valida.");
+        }
     }
 }

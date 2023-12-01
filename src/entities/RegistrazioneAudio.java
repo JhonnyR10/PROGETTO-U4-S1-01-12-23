@@ -19,7 +19,13 @@ public class RegistrazioneAudio extends ElementoMultimediale implements Riproduc
     //Metodi
     @Override
     public void aumentaVolume() {
-        volume++;
+        if (volume < 10) {
+            volume++;
+            System.out.println("Volume aumentato a: " + volume);
+        } else {
+            System.out.println("Volume già al massimo");
+        }
+
 
     }
 
@@ -27,6 +33,9 @@ public class RegistrazioneAudio extends ElementoMultimediale implements Riproduc
     public void abbassaVolume() {
         if (volume > 0) {
             volume--;
+            System.out.println("Volume diminuito a: " + volume);
+        } else {
+            System.out.println("Volume già al minimo!");
         }
     }
 
